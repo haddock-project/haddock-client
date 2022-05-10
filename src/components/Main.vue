@@ -36,7 +36,14 @@
         </div>
 
         <div class="my-3 px-3 w-1/4 overflow-hidden">
-          <!-- Column Content -->
+          <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
+            <div class="h-full w-full items-center justify-center flex justify-center">
+              <img class="h-3/4 w-3/4" src="/images/app/download-icon.webp" alt="Download icon">
+            </div>
+            <div class="p-2">
+              <button class="font-semibold items-center text-sm justify-end w-full text-white">Download more Application</button>
+            </div>
+          </div>
         </div>
 
       </div>
