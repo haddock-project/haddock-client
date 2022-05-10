@@ -1,5 +1,13 @@
+<script setup>
+import moment from "moment";
+let now = moment(new Date()).format("MMM D[,] HH:mm");
+</script>
 <template>
-  <div class="relative flex min-h-screen flex-col justify-end overflow-hidden">
+  <div class="absolute text-6xl font-bold text-white top-1/4 right-0 left-0 text-center">
+    <p>Hi User,</p>
+    <p>It is {{ now }}</p>
+  </div>
+  <div class="absolute flex flex-col bottom-0 right-0 left-0 overflow-hidden">
     <div class="relative bg-white w-full bg-opacity-50 shadow-xl pb-14 sm:mx-auto sm:max-w-2xl sm:rounded-t-[40px] p-7">
       <div class="relative flex flex-wrap">
         <div class="justify-end my-3 px-3 w-1/4 overflow-hidden">
@@ -45,7 +53,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
