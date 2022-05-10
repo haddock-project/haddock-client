@@ -1,11 +1,15 @@
-# haddock-client
+# Hadock
+Hadock is an open source project meant to provide everyday apps trought a docker Ecosystem. This allow you to manage which app do you want and easely share app environements.
 
-## Install
+# Install
+With Nodejs
 ```shell
 npm install
 ```
-
-## run
+With yarn
 ```shell
-npm run start
+yarn install
 ```
+
+# Troubleshooting
+Please open a **GitHub issue**, we'll try to assist you!
