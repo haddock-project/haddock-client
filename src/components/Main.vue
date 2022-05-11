@@ -12,6 +12,9 @@ setInterval(() => {
     <p>Hi User,</p>
     <p>It is {{ now }}</p>
   </div>
+  <div class="absolute h-16 w-16 xl:bottom-0 m-5 xl:right-[7%] right-0">
+    <img src="/images/user.svg" alt="user">
+  </div>
   <div class="absolute flex flex-col bottom-0 right-0 left-0 overflow-hidden">
     <div class="relative bg-white w-full bg-opacity-50 shadow-xl pb-14 sm:mx-auto sm:max-w-2xl sm:rounded-t-[40px] p-7">
       <div class="relative flex flex-wrap">
