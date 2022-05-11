@@ -1,11 +1,11 @@
 <script setup>
 import moment from "moment";
 import { ref } from "vue";
-const now = ref('Loading...');
+const now = ref(moment(new Date()).format("MMM D[,] HH:mm"));
 
 setInterval(() => {
   now.value = moment(new Date()).format("MMM D[,] HH:mm");
-}, 1000);
+}, 5000);
 </script>
 <template>
   <div class="absolute text-6xl font-bold text-white top-1/4 right-0 left-0 text-center">
