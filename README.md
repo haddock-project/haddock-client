@@ -12,4 +12,4 @@ yarn install
 ```
 
 # Troubleshooting
-Please open a **GitHub issue**, we'll try to assist you!
+Please open a [GitHub issue](https://github.com/haddock-project/haddock-client/issues), we'll try to assist you!
