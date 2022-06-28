@@ -1,0 +1,11 @@
+{
+    "language": {
+        "code": "en-US",
+        "name": "English",
+        "hour_format": ""
+    },
+    "default": {
+        "welcome": "Hi {user},",
+        "user": "User"
+    }
+}
