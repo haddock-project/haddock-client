@@ -46,7 +46,7 @@ $(document).ready(function() {
 <template>
   <div class="absolute text-6xl font-bold text-white top-1/4 right-0 left-0 text-center">
     <p>{{ $t('default.welcome', {user: user?.username || ($t('default.user').toString().toLowerCase())}) }}</p>
-    <p>It is {{ now }}</p>
+    <p>{{ $t('default.dateText', {now})}}</p>
   </div>
   <div class="absolute h-16 w-16 xl:bottom-0 m-5 xl:right-[7%] right-0">
     <img src="/images/user.svg" alt="user">

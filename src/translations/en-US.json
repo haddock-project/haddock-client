@@ -6,6 +6,7 @@
     },
     "default": {
         "welcome": "Hi {user},",
-        "user": "User"
+        "user": "User",
+        "dateText": "It is {now}"
     }
 }
