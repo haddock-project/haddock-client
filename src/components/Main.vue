@@ -1,12 +1,47 @@
 <script setup>
 import moment from "moment";
 import { ref } from "vue";
-moment.locale($t('language.code'))
+import { useI18n } from 'vue-i18n'
+moment.locale(`${useI18n().locale.value}`)
 const now = ref(moment(new Date()).format("MMM D[,] HH:mm"));
 
 setInterval(() => {
   now.value = moment(new Date()).format("MMM D[,] HH:mm");
 }, 5000);
+$(document).ready(function() {
+  $(".slick_slider").slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+});
+
 </script>
 <template>
   <div class="absolute text-6xl font-bold text-white top-1/4 right-0 left-0 text-center">
@@ -18,7 +53,7 @@ setInterval(() => {
   </div>
   <div class="absolute flex flex-col bottom-0 right-0 left-0 overflow-hidden">
     <div class="relative bg-white w-full bg-opacity-50 shadow-xl sm:mx-auto sm:max-w-4xl sm:rounded-t-[40px] pt-7 px-7">
-      <div class="flex flex-wrap justify-center">
+      <div class="slick_slider flex flex-wrap justify-center">
         <div class="lg:w-1/5 w-1/2 md:w-1/4 h-1/2 p-4">
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
