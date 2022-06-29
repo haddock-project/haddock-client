@@ -46,7 +46,7 @@ $(document).ready(function() {
   </div>
   <div class="absolute flex flex-col bottom-0 right-0 left-0 overflow-hidden">
     <div class="relative bg-white w-full bg-opacity-50 shadow-xl sm:mx-auto sm:max-w-4xl sm:rounded-t-[40px] pt-7 px-7">
-      <div class="slick_slider flex flex-wrap justify-center">
+      <div class="slick_slider">
         <div class="lg:w-1/5 w-1/2 md:w-1/4 h-1/2 p-4">
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
