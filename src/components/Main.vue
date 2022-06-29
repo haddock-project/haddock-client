@@ -11,7 +11,7 @@ setInterval(() => {
 $(document).ready(function() {
   $(".slick_slider").slick({
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 300,
     slidesToShow: 4,
     slidesToScroll: 4,
