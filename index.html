@@ -10,11 +10,17 @@
         <link rel="stylesheet" href="/styles/slick.min.css"/>
         <link rel="stylesheet" href="/styles/slick-theme.min.css"/>
     </head>
-    <body class="min-h-screen relative bg-no-repeat bg-center bg-cover" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./images/background/mountain1.jpeg')">
-    <noscript>
-        <strong>We're sorry but this site doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <body class="min-h-screen relative bg-no-repeat bg-center bg-cover">
+        <script>
+            document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin', '<div id="loading_page" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">\n' +
+                '            <img src="/images/loader.gif">\n' +
+                '            <p style="text-align: center; font-size: 2em; color: red;">Loading...</p>\n' +
+                '        </div>');
+        </script>
+        <noscript>
+            <strong>We're sorry but this site doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+        </noscript>
+        <div id="app" style="display: none"></div>
+        <script type="module" src="/src/main.js"></script>
     </body>
 </html>
