@@ -51,7 +51,7 @@ $(document).ready(function() {
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
               <div class="h-full w-full items-center justify-center flex justify-center">
-                <img class="h-3/5 w-3/5" src="/images/app/google_doc.webp" alt="Google Doc">
+                <img class="h-3/5 w-3/5 m-4 mb-0" src="/images/app/google_doc.webp" alt="Google Doc">
               </div>
               <div class="p-2">
                 <button class="font-semibold items-center justify-center w-full text-white">Google Doc</button>
@@ -63,7 +63,7 @@ $(document).ready(function() {
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
               <div class="h-full w-full items-center justify-center flex justify-center">
-                <img class="h-3/5 w-3/5" src="/images/app/element.webp" alt="Element">
+                <img class="h-3/5 w-3/5 m-4 mb-0" src="/images/app/element.webp" alt="Element">
               </div>
               <div class="p-2">
                 <button class="font-semibold items-center justify-center w-full text-white">Element</button>
@@ -75,7 +75,7 @@ $(document).ready(function() {
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
               <div class="h-full w-full items-center justify-center flex justify-center">
-                <img class="h-3/5 w-3/5" src="/images/app/libreOffice.webp" alt="Libre Office">
+                <img class="h-3/5 w-3/5 m-4 mb-0" src="/images/app/libreOffice.webp" alt="Libre Office">
               </div>
               <div class="p-2">
                 <button class="font-semibold items-center justify-center w-full text-white">Libre Office</button>
@@ -87,7 +87,7 @@ $(document).ready(function() {
           <div class="justify-end overflow-hidden">
             <div class="overflow-hidden hover:scale-105 transition duration-500 cursor-pointer">
               <div class="h-full w-full items-center justify-center flex justify-center">
-                <img class="h-3/5 w-3/5" src="/images/app/download-icon.webp" alt="Download icon">
+                <img class="h-3/5 w-3/5 m-4 mb-0" src="/images/app/download-icon.webp" alt="Download icon">
               </div>
               <div class="p-2">
                 <button class="font-semibold items-center justify-center w-full text-white">Download more Application</button>
