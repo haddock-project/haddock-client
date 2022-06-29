@@ -1,13 +1,6 @@
 <script setup>
-import moment from "moment";
-import { ref } from "vue";
-import { useI18n } from 'vue-i18n'
-moment.locale(`${useI18n().locale.value}`)
-const now = ref(moment(new Date()).format("MMM D[,] HH:mm"));
-
-setInterval(() => {
-  now.value = moment(new Date()).format("MMM D[,] HH:mm");
-}, 5000);
+import dateTime from './extensions/dateTime.vue'
+// init app slider
 $(document).ready(function() {
   $(".slick_slider").slick({
     dots: true,
@@ -46,7 +39,7 @@ $(document).ready(function() {
 <template>
   <div class="absolute text-6xl font-bold text-white top-1/4 right-0 left-0 text-center">
     <p>{{ $t('default.welcome', {user: user?.username || ($t('default.user').toString().toLowerCase())}) }}</p>
-    <p>{{ $t('default.dateText', {now})}}</p>
+    <dateTime :format="user?.dateFormat" :autoUpdate="user?.dateUpdate"></dateTime>
   </div>
   <div class="absolute h-16 w-16 xl:bottom-0 m-5 xl:right-[7%] right-0">
     <img src="/images/user.svg" alt="user">
