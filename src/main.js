@@ -5,6 +5,7 @@ import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import i18n from './i18n'
 
+// create the app
 const app = createApp(Default)
 
 // Notifications settings
@@ -14,6 +15,7 @@ const options = {
     newestOnTop: true,
 };
 
+// register the plugins
 app.use(Toast, options);
 app.use(i18n);
 app.mount('#app')
