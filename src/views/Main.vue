@@ -1,5 +1,7 @@
 <script setup>
-import dateTime from './extensions/dateTime.vue'
+import dateTime from '../components/dateTime.vue'
+import { ref } from "vue";
+
 // init app slider
 $(document).ready(function() {
   $(".slick_slider").slick({
@@ -41,9 +43,11 @@ $(document).ready(function() {
     <p>{{ $t('default.welcome', {user: user?.username || ($t('default.user').toString().toLowerCase())}) }}</p>
     <dateTime :format="user?.dateFormat" :autoUpdate="user?.dateUpdate"></dateTime>
   </div>
-  <div class="absolute h-16 w-16 xl:bottom-0 m-5 xl:right-[7%] right-0">
-    <img src="/images/user.svg" alt="user">
-  </div>
+  <router-link to="/settings">
+    <div class="absolute h-16 w-16 xl:bottom-0 m-5 xl:right-[7%] right-0">
+      <img src="/images/user.svg" alt="user">
+    </div>
+  </router-link>
   <div class="absolute flex flex-col bottom-0 right-0 left-0 overflow-hidden">
     <div class="relative bg-white w-full bg-opacity-50 shadow-xl sm:mx-auto sm:max-w-4xl sm:rounded-t-[40px] pt-7 px-7">
       <div class="slick_slider">

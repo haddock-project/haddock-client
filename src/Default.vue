@@ -1,6 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import Main from './components/Main.vue'
 import { useToast } from "vue-toastification";
 import {useI18n} from "vue-i18n";
 
@@ -37,6 +36,7 @@ localStorage.setItem("lastLogin", Date.now().toString())
 localStorage.setItem("language", localStorage.getItem("language") || useI18n().locale.value)
 localStorage.setItem("bg_number", localStorage.getItem("bg_name") || 'default.jpg')
 
+// load the background image then display the app and hide the loading screen
 $(document).ready(function() {
   document.getElementsByTagName("body")[0].style.backgroundImage = `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/images/users_background/${localStorage.getItem("bg_number")})`
   document.getElementById('loading_page').remove()
@@ -45,8 +45,7 @@ $(document).ready(function() {
 </script>
 
 <template>
-  <Main />
-  <server />
+  <router-view></router-view>
   <div v-if="!conn.value" @click="connect()" class="fixed right-0 bottom-0 p-5">
     <button type="button" title="Retry to connect to the ws" class="group inline-flex items-center justify-center w-auto px-3 py-2 space-x-2 text-sm font-medium text-white transition bg-red-700 rounded appearance-none cursor-pointer select-none hover:bg-red-800">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:animate-spin" viewBox="0 0 20 20" fill="currentColor">
