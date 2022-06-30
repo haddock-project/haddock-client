@@ -42,10 +42,66 @@ $(document).ready(function() {
   document.getElementById('loading_page').remove()
   document.getElementById('app').style.display = 'block'
 });
+
+// When the user clicks on the menu button, toggle between hiding and showing the dropdown content
+function show_menu() {
+  document.getElementById("menu_dropdown").classList.toggle("hidden");
+}
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!(event.target.matches('.menu') || event.target.parentElement.matches('.menu'))) {
+    const dropdowns = document.getElementById("menu_dropdown")
+    if(!dropdowns.classList.contains('hidden')) {
+      dropdowns.classList.add('hidden');
+    }
+  }
+}
 </script>
 
 <template>
+  <!-- Start Menu -->
+  <div class="z-10 absolute h-16 w-16 m-5 right-0 menu">
+    <!-- Menu button -->
+    <button :onclick="show_menu" class="bg-white menu bg-opacity-50 focus:bg-opacity-100 hover:bg-opacity-100 text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center">
+      <svg fill="none" stroke="currentColor" class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+      </svg>
+    </button>
+    <!-- Menu Content -->
+    <div id="menu_dropdown" class="hidden menu absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
+      <router-link to="/user" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
+        <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="/images/user.svg" alt="user avatar">
+        <div class="mx-1">
+          <h1 class="text-sm font-semibold text-gray-700">Admin</h1>
+          <p class="text-sm text-gray-500">Administrator</p>
+        </div>
+      </router-link>
+
+      <hr class="border-gray-200">
+
+      <router-link to="/" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
+        Home
+      </router-link>
+      <router-link to="/settings" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
+        Settings
+      </router-link>
+
+      <hr class="border-gray-200">
+
+      <router-link to="/" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
+        Help
+      </router-link>
+      <router-link to="/" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform hover:bg-gray-100">
+        Sign Out
+      </router-link>
+
+    </div>
+  </div>
+  <!-- End Menu -->
+  <!-- Start App -->
   <router-view></router-view>
+  <!-- End App -->
+  <!-- Reconnect ws button -->
   <div v-if="!conn.value" @click="connect()" class="fixed right-0 bottom-0 p-5">
     <button type="button" title="Retry to connect to the ws" class="group inline-flex items-center justify-center w-auto px-3 py-2 space-x-2 text-sm font-medium text-white transition bg-red-700 rounded appearance-none cursor-pointer select-none hover:bg-red-800">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:animate-spin" viewBox="0 0 20 20" fill="currentColor">
@@ -53,4 +109,5 @@ $(document).ready(function() {
       </svg>
     </button>
   </div>
+  <!-- End Reconnect ws button -->
 </template>
