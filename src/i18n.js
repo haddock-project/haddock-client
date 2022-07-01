@@ -20,4 +20,4 @@ async function LoadLanguages() {
         messages: lang
     })
 }
-export default await LoadLanguages()
+export default LoadLanguages()

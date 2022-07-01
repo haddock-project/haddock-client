@@ -52,8 +52,9 @@
   </div>
 </template>
 <script setup>
-import i18n from "../i18n";
+import i18nP from "../i18n";
 import {useToast} from "vue-toastification";
+const i18n = await i18nP
 const toast = useToast()
 
 $(document).ready(function() {

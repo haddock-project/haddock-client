@@ -1,7 +1,17 @@
 <script setup>
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
-import i18n from "./i18n";
+import i18nP from "./i18n";
+i18nP.then(i18n => {
+// load the localStorage data
+  localStorage.setItem("connected", conn.value)
+  localStorage.setItem("lastLogin", Date.now().toString())
+  localStorage.setItem("language", localStorage.getItem("language") || i18n.global.locale)
+  localStorage.setItem("bg_number", localStorage.getItem("bg_name") || 'default.jpg')
+
+// Update i18n.global.locale
+  i18n.global.locale = localStorage.getItem("language")
+})
 
 const toast = useToast()
 
@@ -30,15 +40,6 @@ function connect() {
   }
 }
 connect()
-
-// load the localStorage data
-localStorage.setItem("connected", conn.value)
-localStorage.setItem("lastLogin", Date.now().toString())
-localStorage.setItem("language", localStorage.getItem("language") || i18n.global.locale)
-localStorage.setItem("bg_number", localStorage.getItem("bg_name") || 'default.jpg')
-
-// Update i18n.global.locale
-i18n.global.locale = localStorage.getItem("language")
 
 // load the background image then display the app and hide the loading screen
 $(document).ready(function() {
@@ -103,6 +104,17 @@ window.onclick = function(event) {
   </div>
   <!-- End Menu -->
   <!-- Start App -->
-  <router-view></router-view>
+  <Suspense>
+    <template #default>
+      <router-view></router-view>
+    </template>
+    <template #fallback>
+      <div class="flex items-center justify-center h-screen">
+        <div class="text-center">
+          <div class="text-3xl font-bold">Loading...</div>
+        </div>
+      </div>
+    </template>
+  </Suspense>
   <!-- End App -->
 </template>

@@ -16,8 +16,10 @@ const options = {
     newestOnTop: true,
 };
 
-// register the plugins
-app.use(Toast, options);
-app.use(router);
-app.use(i18n);
-app.mount('#app')
+i18n.then((i18n) => {
+    // register the plugins
+    app.use(Toast, options);
+    app.use(router);
+    app.use(i18n);
+    app.mount('#app')
+})
