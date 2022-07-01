@@ -15,7 +15,7 @@
             "description": "Customize your settings to ensure a great experience."
         },
         "languageUpdated": "Language updated",
-        "loginFalseInput": "please login before",
+        "loginFalseInput": "please login before editing",
         "inputs": {
             "firstName": "First Name",
             "lastName": "Last Name",
