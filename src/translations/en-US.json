@@ -8,5 +8,19 @@
         "welcome": "Hi {user},",
         "user": "User",
         "dateText": "It is {now}"
+    },
+    "settings": {
+        "generalSettings": {
+            "name": "General Settings",
+            "description": "Customize your settings to ensure a great experience."
+        },
+        "languageUpdated": "Language updated",
+        "loginFalseInput": "please login before",
+        "inputs": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "languages": "Languages",
+            "templates": "Templates"
+        }
     }
 }

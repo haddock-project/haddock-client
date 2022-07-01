@@ -1,0 +1,12 @@
+{
+    "language": {
+        "code": "fr-FR",
+        "name": "Français",
+        "hour_format": ""
+    },
+    "default": {
+        "welcome": "Bonjour {user},",
+        "user": "Utilisateur",
+        "dateText": "Il est {now}"
+    }
+}
