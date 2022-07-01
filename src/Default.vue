@@ -23,6 +23,7 @@ function connect() {
       timeout: 2500,
       pauseOnHover: true,
       hideProgressBar: false,
+      position: "bottom-right",
     });
     conn.value = false
     console.log("The connection to the websocket failed.", event)

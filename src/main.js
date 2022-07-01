@@ -1,5 +1,4 @@
 import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
 import Default from './Default.vue'
 import './assets/tailwind-init.css'
 import Toast from "vue-toastification";

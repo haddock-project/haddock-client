@@ -65,6 +65,7 @@ $(document).ready(function() {
       timeout: 2500,
       pauseOnHover: true,
       hideProgressBar: false,
+      position: "bottom-right",
     });
   };
 });
