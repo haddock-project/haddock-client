@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
-import {useI18n} from "vue-i18n";
+import i18n from "./i18n";
 
 const toast = useToast()
 
@@ -33,8 +33,11 @@ connect()
 // load the localStorage data
 localStorage.setItem("connected", conn.value)
 localStorage.setItem("lastLogin", Date.now().toString())
-localStorage.setItem("language", localStorage.getItem("language") || useI18n().locale.value)
+localStorage.setItem("language", localStorage.getItem("language") || i18n.global.locale)
 localStorage.setItem("bg_number", localStorage.getItem("bg_name") || 'default.jpg')
+
+// Update i18n.global.locale
+i18n.global.locale = localStorage.getItem("language")
 
 // load the background image then display the app and hide the loading screen
 $(document).ready(function() {
