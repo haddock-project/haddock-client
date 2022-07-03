@@ -1,10 +1,13 @@
 <script setup>
-import { ref } from "vue";
 import { useToast } from "vue-toastification";
 import i18nP from "./i18n";
+import { AppUser } from './components/user'
+const user = AppUser()
+
+
 i18nP.then(i18n => {
 // load the localStorage data
-  localStorage.setItem("connected", conn.value)
+  localStorage.setItem("connected", user.connected)
   localStorage.setItem("lastLogin", Date.now().toString())
   localStorage.setItem("language", localStorage.getItem("language") || i18n.global.locale)
   localStorage.setItem("bg_number", localStorage.getItem("bg_name") || 'default.jpg')
@@ -14,32 +17,14 @@ i18nP.then(i18n => {
 })
 
 const toast = useToast()
-
-// Register from the websocket-client
-let conn = ref(true)
-let connection
-function connect() {
-  console.log("Starting connection to WebSocket Server")
-  connection = new WebSocket("ws://localhost:8080/api/ws/")
-  connection.onmessage = function(event) {
-    console.log(event);
-  }
-  connection.onopen = function(event) {
-    conn.value = true
-    console.log("Successfully connected to the echo websocket server...")
-  }
-  connection.onerror = function(event) {
-    toast.warning("Connection error", {
-      timeout: 2500,
-      pauseOnHover: true,
-      hideProgressBar: false,
-      position: "bottom-right",
-    });
-    conn.value = false
-    console.log("The connection to the websocket failed.", event)
-  }
-}
-connect()
+user.login().catch(err => {
+  toast.warning("Connection error", {
+    timeout: 2500,
+    pauseOnHover: false,
+    hideProgressBar: false,
+    position: "bottom-right",
+  });
+})
 
 // load the background image then display the app and hide the loading screen
 $(document).ready(function() {
@@ -74,11 +59,17 @@ window.onclick = function(event) {
     </button>
     <!-- Menu Content -->
     <div id="menu_dropdown" class="hidden menu absolute right-0 z-20 w-56 py-2 mt-2 overflow-hidden bg-white rounded-md shadow-xl">
-      <router-link to="/user" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
+      <router-link v-if="user.connected" to="/user" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
         <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="/images/user.svg" alt="user avatar">
         <div class="mx-1">
-          <h1 class="text-sm font-semibold text-gray-700">Admin</h1>
-          <p class="text-sm text-gray-500">Administrator</p>
+          <h1 class="text-sm font-semibold text-gray-700">{{ user.username }}</h1>
+          <p class="text-sm text-gray-500">{{ user.lastname }}</p>
+        </div>
+      </router-link>
+      <router-link v-else to="/user" class="flex items-center p-3 -mt-2 text-sm text-gray-600 transition-colors duration-200 transform hover:bg-gray-100">
+        <img class="flex-shrink-0 object-cover mx-1 rounded-full w-9 h-9" src="/images/user.svg" alt="user avatar">
+        <div class="mx-1">
+          <h1 class="text-sm font-semibold text-gray-700">Login</h1>
         </div>
       </router-link>
 

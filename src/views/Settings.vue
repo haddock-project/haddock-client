@@ -16,12 +16,12 @@
                   <div class="grid grid-cols-6 gap-6">
                     <div class="col-span-6 sm:col-span-3">
                       <label for="first-name" class="block text-sm font-medium text-gray-700">{{ $t('settings.inputs.firstName') }}</label>
-                      <input :disabled="!user?.username" :placeholder="user?.username || $t('settings.loginFalseInput')" type="text" name="first-name" id="first-name" class="mt-1 block text-gray-500 cursor-not-allowed w-full py-2 px-3 border border-gray-300 bg-white disabled:bg-gray-100 rounded-md focus:outline-none sm:text-sm" />
+                      <input :disabled="!user.connected" :placeholder="user.connected? user.username : $t('settings.loginFalseInput')" type="text" name="first-name" id="first-name" class="mt-1 block text-gray-500 disable:cursor-not-allowed w-full py-2 px-3 border border-gray-300 bg-white disabled:bg-gray-100 rounded-md focus:outline-none sm:text-sm" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
                       <label for="last-name" class="block text-sm font-medium text-gray-700">{{ $t('settings.inputs.lastName') }}</label>
-                      <input :disabled="!user?.familyname" :placeholder="user?.familyname || $t('settings.loginFalseInput')" type="text" name="last-name" id="last-name" class="mt-1 block text-gray-500 cursor-not-allowed w-full py-2 px-3 border border-gray-300 bg-white disabled:bg-gray-100 rounded-md focus:outline-none sm:text-sm" />
+                      <input :disabled="!user.connected" :placeholder="user.connected? user.lastname : $t('settings.loginFalseInput')" type="text" name="last-name" id="last-name" class="mt-1 block text-gray-500 disable:cursor-not-allowed w-full py-2 px-3 border border-gray-300 bg-white disabled:bg-gray-100 rounded-md focus:outline-none sm:text-sm" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-3">
@@ -56,6 +56,8 @@ import i18nP from "../i18n";
 import {useToast} from "vue-toastification";
 const i18n = await i18nP
 const toast = useToast()
+import { AppUser } from '../components/user'
+const user = AppUser()
 
 $(document).ready(function() {
   $('#language')[0].onchange = function() {

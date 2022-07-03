@@ -1,5 +1,8 @@
 <script setup>
 import dateTime from '../components/dateTime.vue'
+import user from '../components/user'
+
+console.log(user)
 
 // init app slider
 $(document).ready(function() {
