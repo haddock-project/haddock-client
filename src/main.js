@@ -1,13 +1,15 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import Default from './Default.vue'
 import './assets/tailwind-init.css'
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
 import i18n from './i18n'
 import router from './router'
+import user from "./components/user";
 
 // create the app
 const app = createApp(Default)
+app.config.globalProperties.$user = new user()
 
 // Notifications settings
 const options = {
